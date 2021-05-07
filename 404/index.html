@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <link rel="stylesheet" href="../card/css/fontawesome-all.css">
+
+    <style>
+        @font-face {
+            font-family: "IRANSans";
+            src: url('fonts/eot/IRANSansWeb.eot');
+            src: url('fonts/eot/IRANSansWeb.eot?&#iefix') format('embedded-opentype'), url('fonts/woff2/IRANSansWeb.woff2') format('woff2'), url('fonts/woff/IRANSansWeb.woff') format('woff'), url('fonts/ttf/IRANSansWeb.ttf') format('truetype');
+
+        }
+
+        @font-face {
+            font-family: "IRANSans_FaNum";
+            src: url('fonts/eot/IRANSansWeb(FaNum)_Black.eot');
+            src: url('fonts/eot/IRANSansWeb(FaNum)_Black.eot?&#iefix') format('embedded-opentype'), url('fonts/woff2/IRANSansWeb(FaNum)_Black.woff2') format('woff2'), url('fonts/woff/IRANSansWeb(FaNum)_Black.woff') format('woff'), url('fonts/ttf/IRANSansWeb(FaNum)_Black.ttf') format('truetype');
+            font-weight: 900;
+        }
+        a{
+            text-decoration: none;
+            outline: none;
+        }
+        li{
+            list-style: none;
+        }
+
+        body{
+            background: #3F51B5;
+            font-family: IRANSans;
+            overflow:hidden;
+        }
+
+        #box{
+            background: url("../card/tiny-bg.png") #040335;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 0px #0605bb;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .social{
+            color: white;
+            background-color: #3f51b56e;
+            padding: 10px 5px;
+            border-radius: 7px;
+            width: 50%;
+            margin: 50px auto;
+        }
+        .social li{
+            display: inline-block;
+            margin: 0 30px;
+        }
+        .social a{
+            font-size: 20px;
+            padding: 10px 20px;
+            color: white;
+        }
+        .social a:hover{
+            color: #eb1768;
+        }
+
+        .title{
+            color: white;
+            font-size: 9em;
+            font-family: IRANSans_FaNum;
+        }
+
+        .desc{
+            font-family: IRANSans_FaNum;
+            font-size: 26px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .body{
+            color: white;
+            font-size: 20px;
+        }
+
+        .back_home{
+            padding: 15px 25px;
+            border-radius: 20px;
+            color: white;
+            font-family: IRANSans;
+            font-size: 20px;
+            background: #eb1768;
+            margin-bottom: 20px;
+        }
+
+        .back_home:hover{
+            background: rgba(235, 23, 104, 0.82);
+
+        }
+
+        .footer{
+            position: absolute;
+            bottom: 0;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="box">
+    <div class="title">404</div>
+    <div class="desc">این صفحه رو که اصلا ما نداریم!</div>
+    <p class="body">آدرس رو یک بار دیکه چک کن احتمالا دستت خورده یه چیزی کم یا زیاد گذاشتی!!!</p>
+    <div><a href="#" class="back_home">برو به خانه</a></div>
+    <ul class="social">
+        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+        <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+    </ul>
+</div>
+<div class="footer">
+    &copy; M3hdi - 2020
+</div>
+<script>
+    var box = document.getElementById('box');
+
+    window.onmousemove = function (e) {
+        var x = e.clientX / 5,
+        y = e.clientY / 5;
+        box.style.backgroundPositionX = x + 'px';
+        box.style.backgroundPositionY = y + 'px';
+    }
+</script>
+</body>
+</html>
