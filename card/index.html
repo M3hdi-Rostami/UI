@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <style>
+        body{
+            background:url('images/b.jpg') no-repeat center top;
+            background-size: cover;
+        }
+        
+        .our_team{
+            padding: 30px 0 40px;
+            background-color: white;
+            text-align: center;
+            overflow:hidden;
+            position: relative;
+            border-radius: 7px;
+        }
+        .our_team .pic{
+            width: 130px;
+            height: 130px;
+            display: inline-block;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .our_team .pic::before{
+            content: "";
+            width: 100%;
+            height: 0;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 135%;
+            transform: scale(3);
+            transition: all 0.3s linear 0s;
+            background: #eb1768;
+            border-radius: 50%;
+        }
+
+    
+
+
+.our_team:hover .pic::before{
+    height: 100%;
+    transition: all 0.3s linear 0s;
+
+
+}
+
+
+
+.our_team .pic::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #eb1768;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.our_team .pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+}
+       
+.our_team:hover .pic img{
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
+
+}
+
+
+
+.our_team .social{
+    position: absolute;
+    width: 100%;
+    background: #eb1768;
+    bottom: -100px;
+    padding: 0;
+    left: 0;
+    margin: 0;
+    transition: all 0.3s ease 0s
+}
+
+
+.our_team .content{
+    margin-bottom: 50px;
+
+}
+
+.our_team .content .title{
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(56, 56, 56);
+
+}
+
+
+.our_team .content .job{
+    font-weight: 300;
+    color: rgb(85, 85, 85);
+
+}
+
+.our_team:hover .social{
+    bottom: 0;
+}
+
+.our_team .social li{
+    display: inline-block
+}
+
+.our_team .social li a{
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    transition: all 0.9s ease 0s;
+
+}
+.our_team .social li a:hover{
+    color: #eb1768;
+    background: white;
+    transition: all 0.9s ease 0s;
+
+}
+
+
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <div class="our_team">
+                <div class="pic">
+                    <img src="images/1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">مهدی رستمی</div>
+                    <div class="job">توسعه دهنده وب</div>
+                </div>
+                <ul class="social">
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="our_team">
+                <div class="pic">
+                    <img src="images/1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">مهدی رستمی</div>
+                    <div class="job">توسعه دهنده وب</div>
+                </div>
+                <ul class="social">
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="our_team">
+                <div class="pic">
+                    <img src="images/1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">مهدی رستمی</div>
+                    <div class="job">توسعه دهنده وب</div>
+                </div>
+                <ul class="social">
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="our_team">
+                <div class="pic">
+                    <img src="images/1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">مهدی رستمی</div>
+                    <div class="job">توسعه دهنده وب</div>
+                </div>
+                <ul class="social">
+                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
