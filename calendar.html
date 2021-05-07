@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        #app {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .navigation,
+        .footer {
+            max-width: 435px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #eee;
+            color: #383b3e;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .btnCustom {
+            background-color: #383b3e;
+            cursor: pointer;
+            min-width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: #eee;
+            padding: 0 10px 0 10px;
+        }
+
+        .btnCustom:hover {
+            color: #2196f3;
+        }
+
+        .footer {
+            cursor: pointer;
+            border-radius: 0 0 10px 10px;
+            justify-content: space-between
+        }
+
+        tr {
+            display: flex;
+            width: max-content;
+        }
+
+        td,
+        th {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 30px !important;
+        }
+
+        th {
+            color: #999;
+        }
+
+        td.active {
+            color: #2196f3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="navigation  d-flex align-items-center justify-content-between w-100">
+            <div class="btnCustom" @click="navigateTime('decrease')">
+                <i class="fas fa-arrow-left"></i>
+                <div v-text="getMonthName(navigateMonthPrev >= 0 ? navigateMonthPrev : 11)"></div>
+            </div>
+            <div v-text="navigateDate"></div>
+            <div class="btnCustom" @click="navigateTime('increase')">
+                <div v-text="getMonthName(navigateMonthNext <= 11 ? navigateMonthNext : 0 )"></div>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+        <div v-html="table.head + table.body + table.end"></div>
+        <div class="footer w-100">
+            <div class="btnCustom" v-text="'GO TO NOW'" @click="goToNow()"></div>
+            <div class="btnCustom" v-text="'GO TO 1970'" @click="goToFirst()"></div>
+        </div>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    table: {
+                        head: `<table class="table table-bordered table-dark mb-0">
+                        <tr>
+                            <th>MO</th>
+                            <th>TU</th>
+                            <th>WE</th>
+                            <th>TH</th>
+                            <th>FR</th>
+                            <th>SA</th>
+                            <th>SU</th>
+                        </tr><tr>`,
+                        body: '',
+                        end: '</tr></table>'
+                    },
+                    currentDate: new Date(),
+                    navigateDate: 'YYYY - M',
+                    navigateMonthNext: 0,
+                    navigateMonthPrev: 0
+
+                }
+            },
+            mounted() {
+                this.goToNow()
+            },
+            methods: {
+                getDay(date) {
+                    let day = date.getDay();
+                    if (day == 0) day = 7
+                    return day - 1
+                },
+                renderCalendar(year = 1970, month = 1) {
+                    const now = new Date()
+                    this.currentDate = new Date(year, month);
+
+                    this.navigateDate = `${this.currentDate.getFullYear()} - ${this.getMonthName(this.currentDate.getMonth())}`;
+                    this.navigateMonthNext = this.currentDate.getMonth() + 1
+                    this.navigateMonthPrev = this.currentDate.getMonth() - 1
+
+                    this.table.body = '';
+                    for (let i = 0; i < this.getDay(this.currentDate); i++) {
+                        this.table.body += `<td></td>`
+                    }
+
+                    while (this.currentDate.getMonth() == month) {
+                        this.table.body += `<td class="${now.getFullYear() === this.currentDate.getFullYear() && now.getMonth() === this.currentDate.getMonth() && now.getDate() === this.currentDate.getDate() ? 'active' : ''}">${this.currentDate.getDate()}</td>`
+                        if (this.getDay(this.currentDate) % 7 == 6) {
+                            this.table.body += '</tr><tr>'
+                        }
+                        this.currentDate.setDate(this.currentDate.getDate() + 1);
+                    }
+
+                    if (this.getDay(this.currentDate) != 0) {
+                        for (let i = this.getDay(this.currentDate); i <= 6; i++) {
+                            this.table.body += '<td></td>'
+                        }
+                    }
+                },
+                navigateTime(action) {
+                    if (action === 'increase') {
+                        const increase = (this.currentDate.getMonth() - 1) + 1;
+                        this.currentDate.setMonth(increase)
+                    }
+                    if (action === 'decrease') {
+                        const decrease = (this.currentDate.getMonth() - 1) - 1;
+                        this.currentDate.setMonth(decrease)
+                    }
+
+                    const year = this.currentDate.getFullYear()
+                    const month = this.currentDate.getMonth()
+                    this.table.body = '';
+                    this.renderCalendar(year, month)
+                },
+                getMonthName(monthNumber) {
+                    const monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                    ]
+                    return monthNames[monthNumber] || ''
+                },
+                goToNow() {
+                    const now = new Date()
+                    this.renderCalendar(now.getFullYear(), now.getMonth());
+                },
+                goToFirst() {
+                    this.renderCalendar();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
