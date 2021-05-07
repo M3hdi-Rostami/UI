@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile card</title>
+    <link rel="stylesheet" href="../card/css/fontawesome-all.css">
+
+    <style>
+        @font-face {
+            font-family: "IRANSans";
+            src: url('../404/fonts/eot/IRANSansWeb.eot');
+            src: url('../404/fonts/eot/IRANSansWeb.eot?&#iefix') format('embedded-opentype'), url('../404/fonts/woff2/IRANSansWeb.woff2') format('woff2'), url('../404/fonts/woff/IRANSansWeb.woff') format('woff'), url('../404/fonts/ttf/IRANSansWeb.ttf') format('truetype');
+
+        }
+
+        @font-face {
+            font-family: "IRANSans_FaNum";
+            src: url('../404/fonts/eot/IRANSansWeb(FaNum)_Black.eot');
+            src: url('../404/fonts/eot/IRANSansWeb(FaNum)_Black.eot?&#iefix') format('embedded-opentype'), url('../404/fonts/woff2/IRANSansWeb(FaNum)_Black.woff2') format('woff2'), url('../404/fonts/woff/IRANSansWeb(FaNum)_Black.woff') format('woff'), url('../404/fonts/ttf/IRANSansWeb(FaNum)_Black.ttf') format('truetype');
+            font-weight: 900;
+        }
+        body{
+            background-color: #ff9900;
+            font-family: IRANSans;
+        }
+        .card{
+            position: absolute;
+            height: 400px;
+            width: 310px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 7px;
+            background-color: white;
+            box-shadow: 0 0 20px #bf7400;
+            padding: 10px;
+            text-align: center;
+        }
+        .name{
+            font-family: IRANSans_FaNum;
+            color: #146eb4;
+            position: absolute;
+            top: 100px;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .job{
+            color: #6a6a6a;
+            position: absolute;
+            top: 130px;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .divider{
+            width: 100px;
+            height: 2px;
+            background-color: #ff9900;
+            position: absolute;
+            top: 170px;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .bio{
+            color: #a0a0a0;
+            position: absolute;
+            top: 190px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            line-height: 30px;
+            padding: 0 20px;
+        }
+
+        .photo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+            background: url("1.jpg");
+            background-size: 100% 100%;
+            transition: all 0.7s ease 0s;
+            z-index: 1;
+
+        }
+
+        .card:hover .photo{
+            transform: scale(0.4, 0.30) translateY(-690px);
+            border-radius: 50%;
+        }
+
+
+        .social{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            padding: 0;
+            z-index: 0;
+        }
+        .social li{
+            display: inline-block;
+            padding: 0px 15px;
+        }
+
+        .social a{
+            color: #ff9900;
+        }
+        .social a:hover{
+            color: #146eb4;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="card">
+    <div class="info">
+        <div class="name">مهدی رستمی</div>
+        <div class="job">طراح و توسعه دهنده وب</div>
+        <div class="divider"></div>
+        <div class="bio">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+        </div>
+        <div class="photo"></div>
+
+        <ul class="social">
+            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-telegram-plane"></i></a></li>
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>
